@@ -6,5 +6,14 @@
 "COMO GENERAR UN PDF CON FLUTTER"
 *Desde Ya te digo que parece que vos tenes que diseñar con flutter como se vera tu pdf y de ahi buscar un generador de Pdf en alguna libreria y de mas.
 _PAQUETES:
-https://pub.dev/packages/pdf
-f
+https://pub.dev/packages/pdf.
+Voy a practicar con este packages!
+TUTORIAL LEARNING
+https://www.youtube.com/watch?v=EQKPwKCLfws
+_INTERESANTE
+https://compilacionmovil.com/solicitando-permisos-en-android-y-ios-con-flutter/
+
+
+
+
+
