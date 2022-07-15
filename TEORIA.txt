@@ -12,6 +12,9 @@ TUTORIAL LEARNING
 https://www.youtube.com/watch?v=EQKPwKCLfws
 _INTERESANTE
 https://compilacionmovil.com/solicitando-permisos-en-android-y-ios-con-flutter/
+_PROBLEMA EN EXPORTAR PDF
+Video -> 5:20
+solucion del problema puede ser conectar un dispositivo fisico y habilitar el permiso desde ahi
 
 
 
