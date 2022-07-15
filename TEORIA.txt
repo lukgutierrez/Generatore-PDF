@@ -1,1 +1,10 @@
-fdskfknsdnf
+"PRIMERAS IMPRESIONES"
+
+*Primera impresion es que existen paquetes que vos podes generar el pdf, otros podes editarlos y muchas variedad de utilizar el pdf pero la pregunta es ¿Qué quieres hacer vos con el pdf?.
+*Yo lo que busco es generar el PDF desde la misma app y  poder compartirlo....!
+
+"COMO GENERAR UN PDF CON FLUTTER"
+*Desde Ya te digo que parece que vos tenes que diseñar con flutter como se vera tu pdf y de ahi buscar un generador de Pdf en alguna libreria y de mas.
+_PAQUETES:
+https://pub.dev/packages/pdf
+f
