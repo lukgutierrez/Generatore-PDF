@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:pdf/pdf.dart';
+import 'package:path_provider/path_provider.dart';
 import 'package:pdf/widgets.dart' as pw;
 
 class HomePage extends StatefulWidget {
@@ -16,16 +17,17 @@ class _HomePageState extends State<HomePage> {
         pageFormat: PdfPageFormat.a4,
         build: (pw.Context context) {
           return pw.Center(
-            child: pw.Text("Hello Rocio Copa"),
+            child: pw.Text("Hello Lenke"),
           ); // Center
         }));
-    // final file = File("example.pdf");
-    // file.writeAsBytesSync(await pdf.save()); // Page
+    Directory output = await getApplicationDocumentsDirectory();
+    final file = File("${output}.path/ejemplo1.pdf");
+    file.writeAsBytes(await pdf.save());
   }
 
   @override
   Widget build(BuildContext context) {
-    pdfCreation();
+    pdfCreation(); //LLAMO AL METODO
     return Scaffold(
       appBar: AppBar(
         title: Text("PDF GENERATORE"),
