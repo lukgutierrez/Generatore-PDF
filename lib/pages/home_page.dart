@@ -21,20 +21,21 @@ class _HomePageState extends State<HomePage> {
           ); // Center
         }));
     Directory output = await getApplicationDocumentsDirectory();
-    final file = File("${output}.path/ejemplo1.pdf");
+    final file = File("${output.path}/ejemplo1.pdf");
     file.writeAsBytes(await pdf.save());
   }
 
   @override
   Widget build(BuildContext context) {
-    pdfCreation(); //LLAMO AL METODO
     return Scaffold(
       appBar: AppBar(
         title: Text("PDF GENERATORE"),
       ),
       body: Center(
         child: ElevatedButton(
-            onPressed: () {},
+            onPressed: () {
+              pdfCreation();
+            },
             child: Container(
               child: Text("Pdf Creator"),
             )),
