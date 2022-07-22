@@ -16,6 +16,7 @@ _PROBLEMA EN EXPORTAR PDF
 Video -> 5:20
 solucion del problema puede ser conectar un dispositivo fisico y habilitar el permiso desde ahi
 
-
+POSIBLE solucion:
+https://pastebin.com/LhcdnS7L
 
 
