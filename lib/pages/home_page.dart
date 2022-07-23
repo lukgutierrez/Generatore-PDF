@@ -1,5 +1,7 @@
 import 'dart:io';
+import 'dart:typed_data';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:pdf/pdf.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:pdf/widgets.dart' as pw;
@@ -19,11 +21,24 @@ class _HomePageState extends State<HomePage> {
 
   generatePdf() async {
     final pdf = pw.Document();
+    final image =
+        (await rootBundle.load("assets/mercadopago.png")).buffer.asUint8List();
     pdf.addPage(pw.Page(
         pageFormat: PdfPageFormat.a4,
         build: (pw.Context context) {
           return pw.Column(children: [
-          pw.Text(widget.name)
+          
+            pw.SizedBox(
+              width: 100.0,
+              height: 100.0,
+              child: pw.Image(
+                pw.MemoryImage(image),
+              ),
+            ),
+            pw.Text(
+              "Comprobante de trasferencia",
+              style: pw.TextStyle(fontSize: 16.0),
+            )
           ]); // Center
         })); // Page
     Directory tempDir = await getApplicationDocumentsDirectory();
