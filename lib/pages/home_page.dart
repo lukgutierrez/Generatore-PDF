@@ -7,25 +7,29 @@ import 'package:pdf_viewer_plugin/pdf_viewer_plugin.dart';
 import 'package:share_plus/share_plus.dart';
 
 class HomePage extends StatefulWidget {
+  final String name;
+
+  const HomePage(this.name);
   @override
   State<HomePage> createState() => _HomePageState();
 }
 
 class _HomePageState extends State<HomePage> {
+  TextEditingController _name = TextEditingController(text: "");
+
   generatePdf() async {
     final pdf = pw.Document();
-
     pdf.addPage(pw.Page(
         pageFormat: PdfPageFormat.a4,
         build: (pw.Context context) {
-          return pw.Center(child: pw.Text("Hello Fernanda")); // Center
+          return pw.Column(children: [
+          pw.Text(widget.name)
+          ]); // Center
         })); // Page
-
     Directory tempDir = await getApplicationDocumentsDirectory();
     String tempPath = '${tempDir.path}/PaynmentMarket.pdf';
     final file = File(tempPath);
     var path = await file.writeAsBytes(await pdf.save());
-
     return path.path;
   }
 
@@ -35,22 +39,29 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         title: Text("PDF GENERATORE"),
       ),
-      body: Center(
-        child: ElevatedButton(
-            onPressed: () async {
-              var path = await generatePdf();
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => PdfViewer(
-                    path: path,
-                  ),
-                ),
-              );
-            },
-            child: Container(
-              child: Text("Pdf Creator"),
-            )),
+      body: Column(
+        children: [
+          TextField(
+            controller: _name,
+          ),
+          Center(
+            child: ElevatedButton(
+                onPressed: () async {
+                  var path = await generatePdf();
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => PdfViewer(
+                        path: path,
+                      ),
+                    ),
+                  );
+                },
+                child: Container(
+                  child: Text("Pdf Creator"),
+                )),
+          ),
+        ],
       ),
     );
   }
@@ -67,7 +78,6 @@ class PdfViewer extends StatelessWidget {
         actions: [
           IconButton(
               onPressed: () {
-                // ShareExtend.share(path, 'file');
                 Share.shareFiles([path]);
               },
               icon: Icon(Icons.share))
