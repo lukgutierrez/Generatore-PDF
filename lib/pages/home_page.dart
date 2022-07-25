@@ -99,25 +99,28 @@ class _HomePageState extends State<HomePage> {
                               crossAxisAlignment: pw.CrossAxisAlignment.start,
                               children: [
                                 //CUENTA MERCADOPAGO
-                                pw.Column(children: [
-                                  pw.Text("De",
-                                      style: pw.TextStyle(
-                                          fontSize: 18.0, font: font)),
-                                  pw.Text("Juan Perez Almeida",
-                                      style: pw.TextStyle(
-                                          fontSize: 30.0, font: font)),
-                                  pw.Row(children: [
-                                    pw.Text("CVU:",
-                                        style: pw.TextStyle(
-                                            fontSize: 18.0, font: font)),
-                                    pw.Text("000048302493249384",
-                                        style: pw.TextStyle(
-                                            fontSize: 18.0, font: font)),
-                                  ]),
-                                  pw.Text("Cuenta de Mercado Pago",
-                                      style: pw.TextStyle(
-                                          fontSize: 18.0, font: font)),
-                                ]),
+                                pw.Column(
+                                    crossAxisAlignment:
+                                        pw.CrossAxisAlignment.start,
+                                    children: [
+                                      pw.Text("De",
+                                          style: pw.TextStyle(
+                                              fontSize: 18.0, font: font)),
+                                      pw.Text("Juan Perez Almeida",
+                                          style: pw.TextStyle(
+                                              fontSize: 30.0, font: font)),
+                                      pw.Row(children: [
+                                        pw.Text("CVU:",
+                                            style: pw.TextStyle(
+                                                fontSize: 18.0, font: font)),
+                                        pw.Text("000048302493249384",
+                                            style: pw.TextStyle(
+                                                fontSize: 18.0, font: font)),
+                                      ]),
+                                      pw.Text("Cuenta de Mercado Pago",
+                                          style: pw.TextStyle(
+                                              fontSize: 18.0, font: font)),
+                                    ]),
 
                                 //PAGO A LA OTRA CUENTA
                                 pw.Column(
@@ -133,14 +136,14 @@ class _HomePageState extends State<HomePage> {
                                           style: pw.TextStyle(
                                               fontSize: 30.0, font: font)),
                                       pw.Row(children: [
-                                        pw.Text("CUIT/CUIL",
+                                        pw.Text("CBU:",
                                             style: pw.TextStyle(
                                                 fontSize: 18.0, font: font)),
-                                        pw.Text("20-32485893-5",
+                                        pw.Text("246823428374683",
                                             style: pw.TextStyle(
                                                 fontSize: 18.0, font: font)),
                                       ]),
-                                      pw.Text("Caja de ahorro",
+                                      pw.Text("Banco Macro",
                                           style: pw.TextStyle(
                                               fontSize: 18.0, font: font)),
                                     ])
@@ -152,13 +155,11 @@ class _HomePageState extends State<HomePage> {
                   pw.Divider(height: 100.0),
                   //DATE "4"
                   pw.SizedBox(
-                    height: 140.0,
                     child: pw.Column(
                         crossAxisAlignment: pw.CrossAxisAlignment.start,
                         mainAxisAlignment: pw.MainAxisAlignment.spaceBetween,
                         children: [
                           pw.SizedBox(
-                            height: 60.0,
                             child: pw.Column(
                                 mainAxisAlignment:
                                     pw.MainAxisAlignment.spaceBetween,
@@ -173,7 +174,6 @@ class _HomePageState extends State<HomePage> {
                                 ]),
                           ),
                           pw.SizedBox(
-                            height: 60.0,
                             child: pw.Column(
                                 mainAxisAlignment:
                                     pw.MainAxisAlignment.spaceBetween,
