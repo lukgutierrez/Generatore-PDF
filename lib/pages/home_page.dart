@@ -7,6 +7,8 @@ import 'package:path_provider/path_provider.dart';
 import 'package:pdf/widgets.dart' as pw;
 import 'package:pdf_viewer_plugin/pdf_viewer_plugin.dart';
 import 'package:share_plus/share_plus.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:printing/printing.dart';
 
 class HomePage extends StatefulWidget {
   final String name;
@@ -25,6 +27,7 @@ class _HomePageState extends State<HomePage> {
         (await rootBundle.load("assets/mercadopago.png")).buffer.asUint8List();
     final image1 =
         (await rootBundle.load("assets/punto.png")).buffer.asUint8List();
+    final font = await PdfGoogleFonts.nunitoBold();
     pdf.addPage(pw.Page(
         pageFormat: PdfPageFormat.a3,
         build: (pw.Context context) {
@@ -34,30 +37,33 @@ class _HomePageState extends State<HomePage> {
                 crossAxisAlignment: pw.CrossAxisAlignment.start,
                 children: [
                   //DATE "1"
-                  pw.Container(
-                    width: 400.0,
-                    height: 400.0,
+
+                  pw.SizedBox(
+                    height: 350.0,
                     child: pw.Column(
                         mainAxisAlignment: pw.MainAxisAlignment.spaceBetween,
                         crossAxisAlignment: pw.CrossAxisAlignment.start,
                         children: [
                           pw.SizedBox(
-                            width: 300.0,
-                            height: 300.0,
+                            width: 250.0,
+                            height: 250.0,
                             child: pw.Image(
                               pw.MemoryImage(image),
                             ),
                           ),
-                          pw.Text(
-                            "Comprobante de trasferencia",
-                            style: pw.TextStyle(fontSize: 25.0),
+                          pw.Expanded(
+                            child: pw.Text(
+                              "Comprobante de trasferencia",
+                              style: pw.TextStyle(fontSize: 35.0, font: font),
+                            ),
                           ),
                           pw.Text(
                             "23 de julio 2022 a 20:24 hs",
-                            style: pw.TextStyle(fontSize: 15.0),
+                            style: pw.TextStyle(fontSize: 20.0),
                           ),
                         ]),
                   ),
+
                   pw.Divider(height: 100.0),
                   //DATE "2"
                   pw.SizedBox(
@@ -74,37 +80,42 @@ class _HomePageState extends State<HomePage> {
 
                   //DATE "3"
 
-                  pw.Row(children: [
-                    //IMAGEN PUNTOS
-                    pw.SizedBox(
-                      width: 100.0,
-                      height: 300.0,
-                      child: pw.Image(
-                        pw.MemoryImage(image1),
-                      ),
-                    ),
-                    //DUEÑO DE LA CUENTA DE MERCADO PAGO
-                    pw.Column(children: [
-                      pw.Text("De"),
-                      pw.Text("Juan Perez Almeida"),
-                      pw.Row(children: [
-                        pw.Text("CVU:"),
-                        pw.Text("0000483024932493849239429384028394394239480"),
-                      ]),
-                      pw.Text("Cuenta de Mercado Pago"),
-                    ]),
+                  pw.Row(
+                      crossAxisAlignment: pw.CrossAxisAlignment.start,
+                      children: [
+                        //IMAGEN PUNTOS
+                        pw.SizedBox(
+                          width: 100.0,
+                          height: 300.0,
+                          child: pw.Image(
+                            pw.MemoryImage(image1),
+                          ),
+                        ),
+                        //DUEÑO DE LA CUENTA DE MERCADO PAGO
+                        pw.Column(
+                            crossAxisAlignment: pw.CrossAxisAlignment.start,
+                            children: [
+                              pw.Text("De"),
+                              pw.Text("Juan Perez Almeida"),
+                              pw.Row(children: [
+                                pw.Text("CVU:"),
+                                pw.Text(
+                                    "0000483024932493849239429384028394394239480"),
+                              ]),
+                              pw.Text("Cuenta de Mercado Pago"),
+                              //PAGO A LA OTRA CUENTA
 
-                    //PAGO A LA OTRA CUENTA
-                    pw.Column(children: [
-                      pw.Text("Para"),
-                      pw.Text("Roberto Copa Manuel"),
-                      pw.Row(children: [
-                        pw.Text("CUIT/CUIL"),
-                        pw.Text("20-32485893-5"),
+                              pw.Text("Para"),
+                              pw.Text("Roberto Copa Manuel"),
+                              pw.Row(children: [
+                                pw.Text("CUIT/CUIL"),
+                                pw.Text("20-32485893-5"),
+                              ]),
+                              pw.Text("Caja de ahorro"),
+                            ]),
                       ]),
-                      pw.Text("Caja de ahorro"),
-                    ])
-                  ]),
+                  //PAGO A LA OTRA CUENTA
+
                   pw.Divider(height: 100.0),
                   //DATE "4"
                   pw.Column(
