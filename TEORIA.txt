@@ -19,4 +19,8 @@ solucion del problema puede ser conectar un dispositivo fisico y habilitar el pe
 POSIBLE solucion:
 https://pastebin.com/LhcdnS7L
 
+CONCLUSIONES:
+Llegamos a una etapa del proyecto que podemos visualizarlo , compartirlo pero no me aparece en el dispositivo.
+COMO DESCARGAR TODAS LAS RAMAS REMOSTAS ?
+https://gist.github.com/mugan86/9bcc9859d75975de4b94f14e2c917af0
 
