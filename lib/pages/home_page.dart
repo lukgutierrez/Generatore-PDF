@@ -25,9 +25,11 @@ class _HomePageState extends State<HomePage> {
   generatePdf() async {
     final pdf = pw.Document();
     final image =
-        (await rootBundle.load("assets/mercadopago.png")).buffer.asUint8List();
+        (await rootBundle.load("assets/merca.png")).buffer.asUint8List();
     final image1 =
         (await rootBundle.load("assets/punto.png")).buffer.asUint8List();
+    final image2 =
+        (await rootBundle.load("assets/codigo.png")).buffer.asUint8List();
     final font = await PdfGoogleFonts.nunitoBold();
     final font2 = await PdfGoogleFonts.nunitoLight();
     pdf.addPage(pw.Page(
@@ -44,13 +46,25 @@ class _HomePageState extends State<HomePage> {
                       mainAxisAlignment: pw.MainAxisAlignment.spaceBetween,
                       crossAxisAlignment: pw.CrossAxisAlignment.start,
                       children: [
-                        pw.SizedBox(
-                          width: 200.0,
-                          height: 200.0,
-                          child: pw.Image(
-                            pw.MemoryImage(image),
-                          ),
-                        ),
+                        pw.Row(
+                            mainAxisAlignment:
+                                pw.MainAxisAlignment.spaceBetween,
+                            children: [
+                              pw.SizedBox(
+                                width: 200.0,
+                                height: 200.0,
+                                child: pw.Image(
+                                  pw.MemoryImage(image),
+                                ),
+                              ),
+                              pw.SizedBox(
+                                width: 100.0,
+                                height: 100.0,
+                                child: pw.Image(
+                                  pw.MemoryImage(image2),
+                                ),
+                              ),
+                            ]),
                         pw.Expanded(
                           child: pw.Text(
                             "Comprobante de trasferencia",
@@ -196,7 +210,7 @@ class _HomePageState extends State<HomePage> {
           // Center
         })); // Page
     Directory tempDir = await getApplicationDocumentsDirectory();
-    String tempPath = '${tempDir.path}/PaynmentMarket.pdf';
+    String tempPath = '${tempDir.path}/mercadopago_premium-withdraw-2345.pdf';
     final file = File(tempPath);
     var path = await file.writeAsBytes(await pdf.save());
     return path.path;
